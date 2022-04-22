@@ -60,5 +60,41 @@ class TestCredentials(unittest.TestCase):
         self.new_account.delete_account()
         self.assertEqual(len(Credentials.account_list), 1)
         
+    def test_find_by_account_name(self):
+        """Method:
+        tests if search by login is successful
+        """
+        self.new_account.save_account()
+        test_account = Credentials("Test","Test","Test")
+        test_account.save_account()
+        
+        found_login = Credentials.find_by_account_name("Test")
+        
+        self.assertEqual(found_login.password, test_account.password)
+        
+    def test_account_exists(self):
+        """Method:
+        checks if account has already been created 
+        """
+        self.new_account.save_account()
+        test_account = Credentials("Test","Test","Test")
+        test_account.save_account()
+        
+        account_exists = Credentials.account_exists("Test")
+        
+        self.assertTrue(account_exists)
+        
+    def test_display_accounts(self):
+        """Method:
+        returns accounts created 
+        """
+        self.assertEqual(Credentials.display_accounts(), Credentials.account_list)
+        
+    def test_display_accounts(self):
+        """Method:
+        tests the diplay contacts functionality
+        """
+        self.assertEqual(Credentials.display_accounts(), Credentials.account_list)
+    
 if __name__ == "__main__":
     unittest.main() 
