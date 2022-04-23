@@ -1,3 +1,5 @@
+import csv
+
 class Credentials:
     """Class:
     Class that generates new instances of credentials
@@ -14,11 +16,15 @@ class Credentials:
         self.login= login
         self.password = password
         
-    def save_account(self):
+    def save_account_details(self):
         """Method:
         saves account
         """
         Credentials.account_list.append(self)
+        file = "user_credentials.csv"
+        with open(file, "a") as f:
+            writer = csv.writer(f)
+            writer.writerow(Credentials.account_list)
     
     def delete_account(self):
         """Method:
@@ -37,7 +43,8 @@ class Credentials:
         for account in cls.account_list:
             if account.account_name == account_name:
                 return account
-    
+            
+            
     @classmethod
     def account_exists(cls, account_name):
         """Method:
@@ -61,7 +68,6 @@ class Credentials:
 
     # create account with login details 
     # store already existing account details 
-    # create new account details
+
     # choose self-generated or machine generated password
-    # view account credentials and their passwords 
-    # delete the credential account 
+  
