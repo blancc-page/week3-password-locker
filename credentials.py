@@ -101,7 +101,7 @@ class Credentials:
         with open ("account_credentials.csv", "r", newline="") as f:
             acc_reader = csv.reader(f)
             for row in acc_reader:
-                cls.account_list.append(Credentials(row[0], row[1], row[2]))
+                cls.account_list.append(Credentials(row, row, row))
         return cls.account_list
 
     

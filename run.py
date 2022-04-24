@@ -260,8 +260,22 @@ def main():
                             temp = random.sample(all,length)
 
                             #create the password 
-                            password_input = "".join(temp)
+                            passcode_input = "".join(temp)
+                            print(passcode_input)
+                            
+                            file = f"{user_name}_credentials.csv"
+                            with open(file, "a", newline="") as f:
+                                writer = csv.writer(f)
+                                writer.writerow([Credentials(site, user_name, passcode_input)])
+                            
+                            file = "account_credentials.csv"
+                            with open(file, "a", newline="") as f:
+                                writer = csv.writer(f)
+                                writer.writerow([site, user_name, passcode_input])
+                        
+                            save_account(create_account(site, user_name, passcode_input))
 
+                            print("Password Created Successfully.")
                             #print the password
                             # print(password)
                         elif answer == "n":
@@ -290,6 +304,7 @@ def main():
                             with open(file, "a", newline="") as f:
                                 writer = csv.writer(f)
                                 writer.writerow([site, user_name, passcode_input])
+                                                        
                         
                             save_account(create_account(site, user_name, passcode_input))
                                
@@ -304,10 +319,10 @@ def main():
                             with open ("account_credentials.csv", "r", newline="") as f:
                                 acc_reader = csv.reader(f)
                                 for row in acc_reader:
-                                    accounts.append(Credentials(row[0], row[1], row[2]))
+                                    accounts.append(row)
                             for accounts in display_account():
-                                    print(f"Account Name: {accounts.account_name} Login: {accounts.login} Password:{accounts.password}")
-                                    print('\n')
+                                print(f"Account Name: {accounts.account_name[0]} Login: {accounts.login[1]} Password:{accounts.password[2]}")
+                                print('\n')
                         else:
                             print('\n')
                             print("You dont seem to have any accounts saved yet")
