@@ -16,6 +16,7 @@ class User:
         """
         User.user_list.append(self)
         
+        
     
     @classmethod
     def find_by_user_name(cls, cred_combo):
@@ -29,12 +30,12 @@ class User:
             reader = csv.reader(f)
             for row in reader:
                 cls.user_list.append(row)
-        # print(cls.user_list)
+        # print(cls.user_list[0])
         # print(cred_combo)
                 
         for user in cls.user_list:
-            if user[1] == cred_combo[1]:
-                # return user
+            if user == cred_combo:
+                pass
                 return True
         return False
         

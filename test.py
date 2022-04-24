@@ -26,10 +26,10 @@ writer.writerow(["Instagram","Moses","123"])
 
 
 
-# create account with login details 
-# store already existing account details 
-# create new account details
+# create account with login details @
+# store already existing account details @
+# create new account details @
 # choose self-generated or machine generated password
-# view account credentials and their passwords 
-# delete the credential account
+# view account credentials and their passwords @
+# delete the credential account 
 
