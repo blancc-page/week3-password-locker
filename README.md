@@ -6,10 +6,6 @@
 
 - Python
 
-## :link: Link to web app(Deployment Link):
-
-https://blancc-page.github.io/week3-password-locker/
-
 ### :computer: Setup
 To get a local copy up and running follow these simple example steps.
 
