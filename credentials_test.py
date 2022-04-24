@@ -1,6 +1,5 @@
 
 import unittest
-import csv
 from credentials import Credentials
 
 
@@ -37,36 +36,36 @@ class TestCredentials(unittest.TestCase):
         """Method:
         tests if save is successful
         """
-        self.new_account.save_account()
+        self.new_account.save_account_details()
         self.assertEqual(len(Credentials.account_list), 1)
     
     def test_save_accounts(self):
         """Method:
         tests if multiple accounts can be saved successfully
         """
-        self.new_account.save_account()
+        self.new_account.save_account_details()
         test_account = Credentials("Test","Test","Test")
-        test_account.save_account()
+        test_account.save_account_details()
         self.assertEqual(len(Credentials.account_list), 2)
         
-    def test_delete_account(self):
+    def test_delete_account(self,account_name):
         """Method:
         tests if deletion is succesful
         """
-        self.new_account.save_account()
+        self.new_account.save_account_details()
         test_account = self.new_account = Credentials("Instagram","Moses","123")
-        test_account.save_account()
+        test_account.save_account_details()
         
-        self.new_account.delete_account()
+        self.new_account.delete_account(account_name)
         self.assertEqual(len(Credentials.account_list), 1)
         
     def test_find_by_account_name(self):
         """Method:
         tests if search by login is successful
         """
-        self.new_account.save_account()
+        self.new_account.save_account_details()
         test_account = Credentials("Test","Test","Test")
-        test_account.save_account()
+        test_account.save_account_details()
         
         found_login = Credentials.find_by_account_name("Test")
         
@@ -76,9 +75,9 @@ class TestCredentials(unittest.TestCase):
         """Method:
         checks if account has already been created 
         """
-        self.new_account.save_account()
+        self.new_account.save_account_details()
         test_account = Credentials("Test","Test","Test")
-        test_account.save_account()
+        test_account.save_account_details()
         
         account_exists = Credentials.account_exists("Test")
         

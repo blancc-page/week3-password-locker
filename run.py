@@ -160,35 +160,7 @@ def main():
                             writer.writerow([user_name, passcode_input])
                         
                     save_user(create_user(f"user_name", f"passcode_input"))
-                    # print("***********************************************")
-                    # print("                    Log In                     ")
-                    # print("***********************************************")
-                    # print('\n')
-                    # print("User name")
-                    # user_name_input = input()
-                    # print("Password")
-                    # password_input = input()
-                    
-                    # while user_name_input != user_name or passcode_input != password_input:
-                    #     print("Invalid username or password. please try again.")
-                    #     print("User name")
-                    #     user_name_input = input()
-                    #     print("Password")
-                    #     password_input = input()
-                    
-                    # else:
-                    #     print(f"Welcome to your account {user_name}")
-                    #     print('\n')
-                        # file = "user_credentials.csv"
-                        # with open(file, "a", newline="") as f:
-                        #     writer = csv.writer(f)
-                        #     writer.writerow([user_name, password_input])
-                        
-                        # save_user(create_user(user_name, password_input))
-                    # print('\n')
-                    # print(f"New {site} account created for {user_name}.")
-                    # print('\n')
-                    
+
         elif short_code == '2':
                     with open ("user_credentials.csv", "r", newline="") as f:
                         reader = csv.reader(f)
@@ -320,8 +292,8 @@ def main():
                                 acc_reader = csv.reader(f)
                                 for row in acc_reader:
                                     accounts.append(row)
-                            for accounts in display_account():
-                                print(f"Account Name: {accounts.account_name[0]} Login: {accounts.login[1]} Password:{accounts.password[2]}")
+                            for account in accounts:
+                                print(f"Account Name: {account[0]} Login: {account[1]} Password:{account[2]}")
                                 print('\n')
                         else:
                             print('\n')
@@ -338,16 +310,21 @@ def main():
                         
                         while find_account(search_site):
                             search_account = find_account(search_site)
-                            print(f"Are you sure you want to delete {search_account[1]}'s account for the {search_account[0]} website/app/platform? Y for Yes and N for No.")
+                            print(f"Are you sure you want to delete {search_site}'s account? Y for Yes and N for No.")
                             answer = input().lower()
                             if answer == "y":
                                     del_contact(search_account, search_site)
-                                    print(f"{search_account[1]}'s account is deleted.")
+                                    print('\n')
+                                    print(f"{search_site}'s account is deleted.")
+                                    print('\n')
                             elif answer == "n":
+                                    print('\n')
                                     print("Not Deleted")
+                                    print('\n')
                             else:
+                                print('\n')
                                 print("Invalid Option")
-
+                                print('\n')
                     elif short_code == '4':
                         print("***********************************************")
                         print("                     Exit                      ")
