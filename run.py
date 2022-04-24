@@ -152,7 +152,7 @@ def main():
                         print("Re-confirm your password:")
                         passcode_confirm = input()
                     else:
-                        print(f"Congratulations {user_name}! Account creation successful.")
+                        print(f"Congratulations {user_name}! Account creation successful. Sign in again to access your account.")
                         print('\n')
                         file = "user_credentials.csv"
                         with open(file, "a", newline="") as f:
