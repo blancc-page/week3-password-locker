@@ -1,3 +1,5 @@
+import random
+import string
 from credentials import Credentials
 from user import User
 import csv
@@ -241,25 +243,44 @@ def main():
                         answer = input().lower()
                         print("\n")
 
-                        # if answer == "y":
+                        if answer == "y":
                         #     # todo: password generation
-                        if answer == "n":
+                            length = int(input('\nEnter the length of password: '))                      
+                            #define data
+                            lower = string.ascii_lowercase
+                            upper = string.ascii_uppercase
+                            num = string.digits
+                            symbols = string.punctuation
+                            #string.ascii_letters
+
+                            #combine the data
+                            all = lower + upper + num + symbols
+
+                            #use random 
+                            temp = random.sample(all,length)
+
+                            #create the password 
+                            password_input = "".join(temp)
+
+                            #print the password
+                            # print(password)
+                        elif answer == "n":
                             print("Password ...")
                             passcode_input = input()
                             print("Confirm Password ...")
                             passcode_confirm = input()
-
-                        while passcode_input != passcode_confirm:
-                            print("Oooops! Passwords didn't match")
-                            print('\n')
-                            print("Re-enter your password:")
-                            passcode_input = input()
-                            print("Re-confirm your password:")
-                            passcode_confirm = input()
-                        else:
-                            print(f"Congratulations details for {user_name}'s account stored successfuly.")
-                            print('\n')
                             
+                            while passcode_input != passcode_confirm:
+                                print("Oooops! Passwords didn't match")
+                                print('\n')
+                                print("Re-enter your password:")
+                                passcode_input = input()
+                                print("Re-confirm your password:")
+                                passcode_confirm = input()
+                            else:
+                                print(f"Congratulations details for {user_name}'s account stored successfuly.")
+                                print('\n')
+                                
                             file = f"{user_name}_credentials.csv"
                             with open(file, "a", newline="") as f:
                                 writer = csv.writer(f)
