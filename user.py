@@ -21,10 +21,10 @@ class User:
     @classmethod
     def find_by_user_name(cls, cred_combo):
         """Method:
-        finds account using login
+        finds account using login and password
 
         Args:
-            login (str): user name credential
+            cred_combo (str): user name credential and password
         """
         with open ("user_credentials.csv", "r", newline="") as f:
             reader = csv.reader(f)
