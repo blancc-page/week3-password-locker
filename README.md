@@ -1,6 +1,6 @@
 # Password Locker
 
-> An application that will help manage passwords and generate passwords for the end-user. 
+> An application that will help manage, store and generate passwords for the end-user. 
 
 ## :hammer: Built With
 
