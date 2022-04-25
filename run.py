@@ -312,7 +312,7 @@ def main():
                                 for row in acc_reader:
                                     accounts.append(row)
                             for account in accounts:
-                                print(f"Account Name: {account[0]} Login: {account[1]} Password:{account[2]}")
+                                print(f"|Account Name: {account[0]} |Login: {account[1]} |Password:{account[2]}|")
                                 print('\n')
                             print("Sign back in to continue.")
                             print('\n')
