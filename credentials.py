@@ -46,7 +46,7 @@ class Credentials:
         finds account using login
 
         Args:
-            login (str): user name credential
+            account_name (str): user name credential
         """
         if os.path.exists(f"{account_name}_credentials.csv"):
             with open (f"{account_name}_credentials.csv", "r", newline="") as f:
@@ -69,7 +69,7 @@ class Credentials:
         checks if account exists
 
         Args:
-            login (str): user name credential
+            account name (str): user name credential
         """
 
         path = Path(f"{account_name}_credentials.csv")
