@@ -91,7 +91,7 @@ class TestCredentials(unittest.TestCase):
         
     def test_display_accounts(self):
         """Method:
-        tests the diplay contacts functionality
+        tests the diplay account functionality
         """
         self.assertEqual(Credentials.display_accounts(), Credentials.account_list)
     

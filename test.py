@@ -1,5 +1,4 @@
 
-
 import csv
 
 
@@ -20,11 +19,6 @@ import csv
 f = open("credentials.csv", "w", newline="")
 writer = csv.writer(f)
 writer.writerow(["Instagram","Moses","123"])
-
-
-
-
-
 
 # create account with login details @
 # store already existing account details @
