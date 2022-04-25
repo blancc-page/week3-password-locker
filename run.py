@@ -125,7 +125,7 @@ def main():
     
         print("Would you like to:")
         print("( 1 ) Sign Up?")
-        print("( 2 ) Log In?")
+        print("( 2 ) Sign In?")
         print("( 3 ) Exit?")
             
         short_code = input().lower()
@@ -135,13 +135,16 @@ def main():
                     print("***********************************************")
                     print("                   Sign Up                     ")
                     print("***********************************************")
-
+                    print('\n')
                     print("Login ...")
+                    print('\n')
                     user_name = input()
 
                     print("Password ...")
+                    print('\n')
                     passcode_input = input()
                     print("Confirm Password ...")
+                    print('\n')
                     passcode_confirm = input()
 
                     while passcode_input != passcode_confirm:
@@ -152,6 +155,7 @@ def main():
                         print("Re-confirm your password:")
                         passcode_confirm = input()
                     else:
+                        print('\n')
                         print(f"Congratulations {user_name}! Account creation successful. Sign in again to access your account.")
                         print('\n')
                         file = "user_credentials.csv"
@@ -171,17 +175,22 @@ def main():
                     print("                    Log In                     ")
                     print("***********************************************")
                     print('\n')
-                    print("Welcome \n Enter User Name:")
+                    print("Welcome \nEnter User Name:")
+                    print('\n')
                     user_name_input = input()
                     print("Enter password:")
+                    print('\n')
                     password_input = input()
                     credentials_combination = [user_name_input, password_input]
                     
                     #todo: csv search
                     
                     while find_user(credentials_combination) != True:
+                        print('\n')
                         print("Login Failed")
+                        print('\n')
                         print("Invalid username or password. please try again.")
+                        print('\n')
                         print("User name")
                         user_name_input = input()
                         print("Password")
@@ -189,6 +198,9 @@ def main():
                         credentials_combination = [user_name_input, password_input]
                         
                     else:
+                        print('\n')
+                        print("Login successfull.")
+                        print('\n')
                         print("***********************************************")
                         print(f"               {user_name_input}'s Account                ")
                         print("***********************************************")
@@ -207,17 +219,21 @@ def main():
                         print("***********************************************")
                         print("                 Store Details                 ")
                         print("***********************************************")
+                        print('\n')
                         print("Software ...")
+                        print('\n')
                         site = input()
                         print("Login ...")
+                        print('\n')
                         user_name = input()
-                        print("Would you like me to generate a password for you?( Y ) \n Or would you like to input your own?( N )")
+                        print("Would you like me to generate a password for you?( Y ) \nOr would you like to input your own?( N )")
                         answer = input().lower()
                         print("\n")
 
                         if answer == "y":
                         #     # todo: password generation
-                            length = int(input('\nEnter the length of password: '))                      
+                            length = int(input('\nEnter the length of password: ')) 
+                            print('\n')                     
                             #define data
                             lower = string.ascii_lowercase
                             upper = string.ascii_uppercase
@@ -233,7 +249,6 @@ def main():
 
                             #create the password 
                             passcode_input = "".join(temp)
-                            print(passcode_input)
                             
                             file = f"{user_name}_credentials.csv"
                             with open(file, "a", newline="") as f:
@@ -247,21 +262,25 @@ def main():
                         
                             save_account(create_account(site, user_name, passcode_input))
 
-                            print("Password Created Successfully.")
+                            print(f"Password for {user_name} Generated Successfully. Copy it:\n\n {passcode_input}\n\n2 or Sign back in and select ( 2 ).")
                             #print the password
                             # print(password)
                         elif answer == "n":
                             print("Password ...")
+                            print('\n')
                             passcode_input = input()
                             print("Confirm Password ...")
+                            print('\n')
                             passcode_confirm = input()
                             
                             while passcode_input != passcode_confirm:
                                 print("Oooops! Passwords didn't match")
                                 print('\n')
                                 print("Re-enter your password:")
+                                print('\n')
                                 passcode_input = input()
                                 print("Re-confirm your password:")
+                                print('\n')
                                 passcode_confirm = input()
                             else:
                                 print(f"Congratulations details for {user_name}'s account stored successfuly.")
@@ -295,6 +314,8 @@ def main():
                             for account in accounts:
                                 print(f"Account Name: {account[0]} Login: {account[1]} Password:{account[2]}")
                                 print('\n')
+                            print("Sign back in to continue.")
+                            print('\n')
                         else:
                             print('\n')
                             print("You dont seem to have any accounts saved yet")
@@ -310,17 +331,20 @@ def main():
                         
                         while find_account(search_site):
                             search_account = find_account(search_site)
-                            print(f"Are you sure you want to delete {search_site}'s account? Y for Yes and N for No.")
+                            print('\n')
+                            print(f"Are you sure you want to delete {search_site}'s account?\n( Y ) for Yes or\n( N ) for No.")
+                            print('\n')
                             answer = input().lower()
                             if answer == "y":
                                     del_contact(search_account, search_site)
                                     print('\n')
-                                    print(f"{search_site}'s account is deleted.")
+                                    print(f"{search_site}'s account details are deleted.")
                                     print('\n')
                             elif answer == "n":
                                     print('\n')
-                                    print("Not Deleted")
+                                    print("Not Deleted.")
                                     print('\n')
+                                    break
                             else:
                                 print('\n')
                                 print("Invalid Option")
@@ -330,7 +354,7 @@ def main():
                         print("                     Exit                      ")
                         print("***********************************************")
                         print("\n")
-                        print("Sad to see you go. Bye :(")
+                        print("Your secrets are safe with me. :)")
                         exit()
                     else:
                         print("Ooops! Please Pick ( 1 ) - ( 4 )")
@@ -340,13 +364,13 @@ def main():
                     print("                     Exit                      ")
                     print("***********************************************")
                     print("\n")
-                    print("Sad to see you go. Bye :(")
+                    print("Your secrets are safe with me. :)")
                     print("\n")
                     exit()
 
 
         else:
-                    print("I really didn't get that. Please use the short codes")
+                    print("I really didn't get that. Please use the choices in brackets eg. ( 1 ) , ( Y ) etc.")
                     
 if __name__ == '__main__':
     

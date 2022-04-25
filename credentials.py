@@ -3,9 +3,6 @@ import os
 import os.path
 from pathlib import Path
 
-
-
-
 class Credentials:
     """Class:
     Class that generates new instances of credentials
@@ -84,13 +81,9 @@ class Credentials:
                     
             for account  in cls.account_list:
                 if account == account_name:
-                    # return account
                     return True
             return False
-            # for account in cls.account_list:
-            #     if account.account_name == account_name:
-            #         return True
-            # return False
+
         else: 
             return False
     @classmethod
@@ -104,10 +97,4 @@ class Credentials:
                 cls.account_list.append(Credentials(row, row, row))
         return cls.account_list
 
-    
-
-    # create account with login details 
-    # store already existing account details 
-
-    # choose self-generated or machine generated password
   
