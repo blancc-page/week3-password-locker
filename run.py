@@ -54,14 +54,14 @@ def save_user(user):
     """
     user.save_user_details()
 
-def find_account(account):
+def find_account(search_site):
     """searches for number
 
     Args:
         number (str): phone number
     """
     
-    return Credentials.find_by_account_name(account)
+    return Credentials.find_by_account_name(search_site)
 
 def find_user(user):
     """searches for number
@@ -340,6 +340,7 @@ def main():
                                     print('\n')
                                     print(f"{search_site}'s account details are deleted.")
                                     print('\n')
+                                    break
                             elif answer == "n":
                                     print('\n')
                                     print("Not Deleted.")

@@ -34,30 +34,30 @@ class Credentials:
         deletes account
         """
         
-        with open (f"{account_name}_credentials.csv", "w", newline="") as f:
+        with open (f"account_credentials.csv", "w", newline="") as f:
             writer = csv.writer(f)
             writer.writerow([])
-        os.remove(f"{account_name}_credentials.csv")
+        # os.remove(f"{account_name}_credentials.csv")
 
     account_det = None
     @classmethod
-    def find_by_account_name(cls, account_name):
+    def find_by_account_name(cls, search_site):
         """Method:
         finds account using login
 
         Args:
             account_name (str): user name credential
         """
-        if os.path.exists(f"{account_name}_credentials.csv"):
-            with open (f"{account_name}_credentials.csv", "r", newline="") as f:
+        # if os.path.exists(f"{search_site}_credentials.csv"):
+        with open (f"{search_site}_credentials.csv", "r", newline="") as f:
                 reader = csv.reader(f)
                 for row in reader:
                     cls.account_list.append(row)
                     
-            for account in cls.account_list:
-                if account == account_name:
+        for account in cls.account_list:
+                if account == search_site:
                     pass
-            return account
+                return account
         else:
             return False
         
